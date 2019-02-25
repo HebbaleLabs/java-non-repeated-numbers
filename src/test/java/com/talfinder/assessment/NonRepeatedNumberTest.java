@@ -26,20 +26,24 @@ public class NonRepeatedNumberTest {
   }
 
   @Test
-  public void filterListWithNoRepeatedNumber() {
-    List<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8));
+  public void filterListWithOnlyRepeatedNumber() {
+    List<Integer> numbers = new ArrayList<>(Arrays.asList(1, 1));
     List<Integer> actual = nonRepeatedNumber.getNonRepeatedNumber(numbers);
-    Assert.assertThat(actual.size(), is(8));
+    Assert.assertThat(actual.size(), is(0));
 
-    numbers = new ArrayList<>(Arrays.asList(108, 652, 22, 3897, 112345, 43, 140, 35, 899, 5430));
+    numbers = new ArrayList<>(Arrays.asList(108, 652, 22, 899, 5430, 652, 22, 108, 899, 5430));
     actual = nonRepeatedNumber.getNonRepeatedNumber(numbers);
-    Assert.assertThat(actual.size(), is(10));
+    Assert.assertThat(actual.size(), is(0));
   }
 
   @Test
-  public void filterEmptyList() {
+  public void filterEmptyListOrNonRepeatedNumber() {
     List<Integer> numbers = new ArrayList<>();
     List<Integer> actual = nonRepeatedNumber.getNonRepeatedNumber(numbers);
     Assert.assertThat(actual.size(), is(0));
+
+    numbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8));
+    actual = nonRepeatedNumber.getNonRepeatedNumber(numbers);
+    Assert.assertThat(actual.size(), is(8));
   }
 }
