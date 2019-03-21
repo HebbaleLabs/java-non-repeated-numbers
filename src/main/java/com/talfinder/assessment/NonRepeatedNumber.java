@@ -17,7 +17,8 @@ public class NonRepeatedNumber {
      * 3. Use the Run-Java command to run main method
      * 4. Use the BuildAndRunTests command to evaluate your solution
      */
-    return numbers;
+    List<Integer> output = null;
+    return output;
   }
 
   public static void main(String[] args) {
